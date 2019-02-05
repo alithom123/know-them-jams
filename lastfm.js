@@ -1,7 +1,17 @@
 // Our main javascript code.
 
-const wikiApiUrl = "https://en.wikipedia.org/w/api.php";
+const lastFmApiUrl = "https://last.fm";
 var parameters = [];
+
+/* 
+LAST FM APPLICATION CREDENTIALS
+
+Application name	Know Them Jams
+API key	0772c14f0ba015c725c4b9e7d8f8e319
+Shared secret	28099db5c2ff26665802eeae38560cc5
+Registered to	ALITHOM123
+
+*/
 
 parameters.push("action=query");
 parameters.push("titles=Einstein");
@@ -9,17 +19,15 @@ parameters.push("prop=info");
 parameters.push("format=jsonfm");
 
 // action=query&titles=Albert%20Einstein&prop=info&format=jsonfm
-let wikiApiUrlWithParameters = wikiApiUrl + "?" + parameters.join("&");
+let lastFmApiUrlWithParameters = lastFmApiUrl + "?" + parameters.join("&");
 
 $(document).ready(function() {
   console.log("ready!");
+
   var albumName = encodeURIComponent("Songs of Leonard Cohen");
 
-  // This one was from the wiki playground
-  // Playground: https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&format=json&prop=extracts&generator=search&gsrsearch=You%20Want%20It%20Darker&gsrlimit=1
-
   $.getJSON(
-    "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&generator=search&gsrsearch=You%20Want%20It%20Darker&gsrlimit=1&origin=*",
+    "https://www.last.fm/api/auth/?api_key=0772c14f0ba015c725c4b9e7d8f8e319",
     function(data) {
       console.log(data);
     }

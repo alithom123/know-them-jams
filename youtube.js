@@ -3,32 +3,75 @@
 
 // {/* <script src="https://apis.google.com/js/api.js"></script> */}
 
-function start() {
-  // 2. Initialize the JavaScript client library.
-  gapi.client
-    .init({
-      apiKey: "AIzaSyDBI7hI8JK4aZzVzoielp37nxJ9C28bSCQ",
-      // Your API key will be automatically added to the Discovery Document URLs.
-      discoveryDocs: ["https://people.googleapis.com/$discovery/rest"]
-      // clientId and scope are optional if auth is not required.
-      // clientId: "YOUR_WEB_CLIENT_ID.apps.googleusercontent.com",
-      // scope: "profile"
-    })
-    .then(function() {
-      // 3. Initialize and make the API request.
-      return gapi.client.people.people.get({
-        resourceName: "people/me",
-        "requestMask.includeField": "person.names"
+var artist;
+var q;
+
+$(document).ready(function () {
+
+  console.log("ready!");
+
+  $(".searchButton").on("click", function () {
+
+    artist = $(".searchText").val();
+    console.log(artist);
+
+    function start() {
+
+      // Initializes the client with the API key and the Translate API.
+      $.ajax({
+        datatype:"json",
+        'apiKey': 'YOUR_API_KEY',
+        'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/translate/v2/rest'],
+      }).then(function () {
+        // Executes an API request, and returns a Promise.
+        // The method name `language.translations.list` comes from the API discovery.
+        return gapi.client.language.translations.list({
+          q: artist,
+          source: 'en',
+          target: 'de',
+        });
+      }).then(function (response) {
+        console.log(response.result.data.translations[0].translatedText);
+      }, function (reason) {
+        console.log('Error: ' + reason.result.error.message);
       });
-    })
-    .then(
-      function(response) {
-        console.log(response.result);
-      },
-      function(reason) {
-        console.log("Error: " + reason.result.error.message);
-      }
-    );
-}
-// 1. Load the JavaScript client library.
-gapi.load("client", start);
+      gapi.load('client', start);
+    };
+    function handleAPILoaded() {
+      $('.searchButton').attr('disabled', false);
+    }
+    
+    
+    // Search for a specified string.
+    function search() {
+      q = $('#query').val();
+      var request = gapi.client.youtube.search.list({
+        q: artist,
+        part: 'snippet',
+        maxResult: 3
+      });
+    
+      request.execute(function(response) {
+        var str = JSON.stringify(response.result);
+        $('#search-container').html('<pre>' + str + '</pre>');
+      });
+    }
+
+    // $.ajax({
+    //   datatype: "json",
+    //   url: queryURL,
+    //   success: console.log("WORKING")
+    // }).then(function (response) {
+    //   console.log(response);
+
+
+    // });
+    handleAPILoaded();
+    start();
+    search();
+
+  });
+});
+
+
+// Loads the JavaScript client library and invokes `start` afterwards.

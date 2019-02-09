@@ -52,6 +52,23 @@ h2{
     align-self: center
 
 }
+.card-info, .trackList{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    float: left;
+
+}
+.card-header{
+    font-family: 'Major Mono Display', monospace;
+    background:black;
+    color: white;
+    font-size: 25px;
+}
+#player{
+    float:right;
+}
 
 
 /* // Small devices (landscape phones, 576px and up)

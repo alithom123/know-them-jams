@@ -50,7 +50,7 @@
                 <a class="nav-item nav-link active" href="index.html">home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="about.html">about</a>
                 <a class="nav-item nav-link" href="searches.html">recent-searches</a>
-                <a class="nav-item nav-link" href="favorites.html">favorites</a>
+                
             </div>
         </div>
     </nav>
@@ -83,14 +83,55 @@
 
         <ul class="trackList"></ul>
 
-        <iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1m"frameborder="0"></iframe>
+        <iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1m"
+            frameborder="0"></iframe>
+
+        <div id="recent-searches"></div>
 
     </div>
 
 
 
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAGFo8P0w_geQah7Qo1HrCE3BetFkpcuY4",
+            authDomain: "project1-231019.firebaseapp.com",
+            databaseURL: "https://project1-231019.firebaseio.com",
+            projectId: "project1-231019",
+            storageBucket: "project1-231019.appspot.com",
+            messagingSenderId: "639921836253"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+        var database = firebase.database();
+
+        
+
+        $("#button-addon2").on("click", function (event) {
+
+            event.preventDefault();
+
+            var recentSearch = $(".searchText").val().trim();
+
+            console.log(recentSearch);
+
+
+            database.ref().push({
+                recentSearch: recentSearch
+
+            });
+
+        });
+
+    </script>
+
+
 </body>
 
-
-<!-- 
 </html>

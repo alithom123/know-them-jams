@@ -45,7 +45,7 @@
                 <a class="nav-item nav-link active" href="index.html">home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="about.html">about</a>
                 <a class="nav-item nav-link" href="searches.html">recent-searches</a>
-                <a class="nav-item nav-link" href="favorites.html">favorites</a>
+                
             </div>
         </div>
     </nav>
@@ -66,10 +66,39 @@
 
 
     <div class="card">
-        <div class="card-header">this will hold a list of our recent-searches</div>
+        <div class="card-header">Recent Searches</div>
+        <div class="recent-searches"></div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAGFo8P0w_geQah7Qo1HrCE3BetFkpcuY4",
+            authDomain: "project1-231019.firebaseapp.com",
+            databaseURL: "https://project1-231019.firebaseio.com",
+            projectId: "project1-231019",
+            storageBucket: "project1-231019.appspot.com",
+            messagingSenderId: "639921836253"
+        };
+        firebase.initializeApp(config);
 
+        var database = firebase.database();
+
+
+        database.ref().on("child_added", function (childSnapshot) {
+            console.log(childSnapshot.val().recentSearch);
+
+
+            var newArtist = $("<div>");
+            newArtist.append($("<p>").text(childSnapshot.val().recentSearch));
+
+
+
+            $(".recent-searches").append(newArtist);
+
+        });
+    </script>
 </body>
 
 </html>

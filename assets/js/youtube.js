@@ -20,8 +20,8 @@ $(document).ready(function () {
       // Initializes the client with the API key and the Translate API.
       $.ajax({
         datatype:"json",
-        'apiKey': 'YOUR_API_KEY',
-        'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/translate/v2/rest'],
+        'apiKey': '2f736a46911731f07642e59e4f88026c',
+        'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
       }).then(function () {
         // Executes an API request, and returns a Promise.
         // The method name `language.translations.list` comes from the API discovery.

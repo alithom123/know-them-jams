@@ -1,6 +1,6 @@
 var artist;
 $(document).ready(function () {
-     console.log("ready!");
+    console.log("ready!");
 
     $(".searchButton").on("click", function () {
         artist = $(".searchText").val();

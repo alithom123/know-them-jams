@@ -18,16 +18,18 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
         crossorigin="anonymous">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Montserrat" rel="stylesheet">
 
     <!-- jQuery -->
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <!-- Our JS -->
     <!-- <script src="assets/js/app.js"></script> -->
-    <script src="assets/js/musixmusic.js"></script>
+    <script src="assets/js/lastFM.js"></script>
+    <!-- <script src="youtube.js"></script> -->
+
+    <!-- <script src="https://apis.google.com/js/api.js"></script> -->
+    <script type="text/javascript" src="https://apis.google.com/js/api.js?onload=init"></script>
 
     <title>Know Them Jams</title>
 
@@ -78,11 +80,17 @@
 
     <div class="card">
         <div class="card-header">Artist Info</div><br>
+
+        <ul class="trackList"></ul>
+
+        <iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1m"frameborder="0"></iframe>
+
     </div>
+
+
 
 </body>
 
 
 <!-- 
 </html>
-

@@ -8,7 +8,7 @@ var q;
 
 $(document).ready(function () {
 
-  console.log("ready!");
+  console.log("ready in youtube!");
 
   $(".searchButton").on("click", function () {
 
@@ -19,8 +19,8 @@ $(document).ready(function () {
 
       // Initializes the client with the API key and the Translate API.
       $.ajax({
-        datatype:"json",
-        'apiKey': 'YOUR_API_KEY',
+        datatype: "json",
+        'apiKey': 'AIzaSyDBI7hI8JK4aZzVzoielp37nxJ9C28bSCQ',
         'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/translate/v2/rest'],
       }).then(function () {
         // Executes an API request, and returns a Promise.
@@ -31,17 +31,20 @@ $(document).ready(function () {
           target: 'de',
         });
       }).then(function (response) {
-        console.log(response.result.data.translations[0].translatedText);
+        console.log("Youtube response:");
+        // console.log(response);
+        // console.log(response.result.data.translations[0].translatedText);
       }, function (reason) {
         console.log('Error: ' + reason.result.error.message);
       });
       gapi.load('client', start);
     };
+
     function handleAPILoaded() {
       $('.searchButton').attr('disabled', false);
     }
-    
-    
+
+
     // Search for a specified string.
     function search() {
       q = $('#query').val();
@@ -50,8 +53,8 @@ $(document).ready(function () {
         part: 'snippet',
         maxResult: 3
       });
-    
-      request.execute(function(response) {
+
+      request.execute(function (response) {
         var str = JSON.stringify(response.result);
         $('#search-container').html('<pre>' + str + '</pre>');
       });

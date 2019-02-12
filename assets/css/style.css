@@ -30,7 +30,6 @@ h2{
 }
 .nav-item, .navbar-brand{
     color: #3DF5FF;
-    text-decoration: 
 }
 .input-group{
     width: 40%;
@@ -68,7 +67,7 @@ h2{
 }
 
 
-// Small devices (landscape phones, 576px and up)
+/* // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { ... }
 
 // Medium devices (tablets, 768px and up)
@@ -78,4 +77,4 @@ h2{
 @media (min-width: 992px) { ... }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
+@media (min-width: 1200px) { ... } */

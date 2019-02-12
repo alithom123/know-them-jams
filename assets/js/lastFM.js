@@ -1,6 +1,6 @@
 var artist;
 
-$(document).ready(function () {
+
     console.log("ready!");
 
     $(".searchButton").on("click", function () {
@@ -45,4 +45,3 @@ $(document).ready(function () {
 
         });
     });
-});

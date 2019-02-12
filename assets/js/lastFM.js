@@ -11,10 +11,6 @@ $(document).ready(function () {
         // var key = "2f736a46911731f07642e59e4f88026c";
 
         var queryURL = "https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artist + "&limit=5&api_key=2f736a46911731f07642e59e4f88026c&format=json";
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 
 
         $.ajax({

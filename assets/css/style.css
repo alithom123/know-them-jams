@@ -59,12 +59,7 @@ h2{
 #player{
     float:right;
 }
-.trackList, .recent-searches, .card-info{
-    margin: 1% 3%;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-}
-#wiki{
+.trackList, .recent-searches, .card-info, #wiki{
     margin: 1% 3%;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;

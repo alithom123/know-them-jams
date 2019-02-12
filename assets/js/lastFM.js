@@ -1,7 +1,8 @@
 var artist;
 
 
-console.log("ready!");
+console.log("lastfm ready!");
+console.log($(".searchButton"));
 
 $(".searchButton").on("click", function () {
     artist = $(".searchText").val();
